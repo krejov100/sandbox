@@ -1,9 +1,13 @@
+// Copyright 2018 Philip Krejov
+#ifndef CPP_VECTOR_UTIL_HPP_
+#define CPP_VECTOR_UTIL_HPP_
+
 #include <vector>
 
 namespace pk {
-
     template<typename T>
-    std::vector<std::vector<T> > transpose(const std::vector<std::vector<T> > &data) {
+    std::vector<std::vector<T> > transpose(
+        const std::vector<std::vector<T> > &data) {
         // https://stackoverflow.com/questions/6009782/how-to-pivot-a-vector-of-vectors
         // this assumes that all inner vectors have the same size and
         // allocates space for the complete result in advance
@@ -15,5 +19,6 @@ namespace pk {
             }
         return result;
     }
+}  // namespace pk
 
-}
+#endif  // CPP_VECTOR_UTIL_HPP_
