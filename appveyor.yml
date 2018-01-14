@@ -13,6 +13,7 @@ environment:
       CONFIG: Release
 
 build_script:
+  - ps: cd cpp
   - cmake "-G%GENERATOR%" -H. -B_builds
   - cmake --build _builds --config "%CONFIG%"
 
