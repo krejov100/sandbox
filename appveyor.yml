@@ -11,7 +11,10 @@ environment:
 
     - GENERATOR: "Visual Studio 12 Win64"
       CONFIG: Release
-
+      
+install:
+  - cmd: git submodule -q update --init
+  
 build_script:
   - ps: cd cpp
   - cmake "-G%GENERATOR%" -H. -B_builds
