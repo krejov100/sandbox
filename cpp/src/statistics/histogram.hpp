@@ -15,7 +15,7 @@ struct Histogram
 inline std::pair<size_t, Range<float>> linear_quantize(const float &value, size_t steps, const Range<float> &minMax)
 {
     float stepWidth = (minMax.max - minMax.min) / steps;
-    size_t stepId = size_t(value - minMax.min) / stepWidth;
+    size_t stepId = size_t((value - minMax.min) / stepWidth);
  
     float val = value;
     val += val == 0 ? stepWidth / 2 : 0; // zero condition
