@@ -1,6 +1,23 @@
 #include <vector>
 #include "range.hpp"
 
+#ifdef DOCTEST_LIBRARY_INCLUDED
+TEST_CASE("quick test 1") {
+    CHECK(2 == 2);
+}
+
+TEST_CASE("quick test 2")
+{
+    CHECK(2 == 2);
+}
+
+TEST_CASE("quick test 3")
+{
+    CHECK(2 == 3);
+}
+#endif DOCTEST_LIBRARY_INCLUDED
+
+
 template<typename T>
 struct Histogram
 {
