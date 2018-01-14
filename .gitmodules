@@ -1,3 +1,6 @@
 [submodule "cpp/third_party/linalg"]
 	path = cpp/third_party/linalg
 	url = https://github.com/sgorsten/linalg.git
+[submodule "cpp/third_party/doctest"]
+	path = cpp/third_party/doctest
+	url = https://github.com/onqtam/doctest.git
