@@ -11,7 +11,8 @@ INCLUDE_DIRECTORIES (third_party/doctest/doctest)
 
 add_subdirectory (src)
 add_subdirectory (apps)
+add_subdirectory (tests)
 
-
+enable_testing()
 #enable_testing()
 #add_test(NAME UnitTest COMMAND Test)
