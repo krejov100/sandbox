@@ -6,6 +6,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Recurse into the "Hello" and "Demo" subdirectories. This does not actually
 # cause another cmake executable to run. The same process will walk through
 # the project's entire directory structure.
+enable_testing()
 
 INCLUDE_DIRECTORIES (third_party/doctest/doctest)
 
@@ -13,6 +14,6 @@ add_subdirectory (src)
 add_subdirectory (apps)
 add_subdirectory (tests)
 
-enable_testing()
+
 #enable_testing()
 #add_test(NAME UnitTest COMMAND Test)
