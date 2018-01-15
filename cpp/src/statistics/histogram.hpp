@@ -68,7 +68,7 @@ TEST_CASE("compute_histogram test")
 {
 	std::vector<float> values = { 0.234f,12.45f, 9.324f, -3.34f, 8.0f, -2.98f, -20.0f, 0.0f };
 	auto hist = compute_histogram(values, 4, Range<float>{-20.0f, 20.0f}, linear_quantize);
-	const size_t totalCount = std::accumulate(hist.bins.begin(), hist.bins.end(), 0, [](const size_t previous, auto& p) { return previous + p.second.count; });
+	const size_t totalCount = std::accumulate(hist.bins.begin(), hist.bins.end(), 0, [](const size_t previous, const std::pair<size_t, Histogram<float>::Bin> &p) { return previous + p.second.count; });
 	
 	CHECK(hist.bins.size() == 4);
 	CHECK(totalCount == values.size());
