@@ -7,7 +7,7 @@ A play area for human perception 🤸 and cool code
             master branch
         </td>
         <td>
-            Windows <a href="https://ci.appveyor.com/project/onqtam/doctest/branch/master"><img src="https://ci.appveyor.com/api/projects/status/j89qxtahyw1dp4gd/branch/master?svg=true"></a>
+            Windows <a href="https://ci.appveyor.com/project/krejov100/sandbox/branch/master"><img src="https://ci.appveyor.com/api/projects/status/c945bnaij1v5qtct/branch/master?svg=true"></a>
         </td>
     </tr>
     <tr>
@@ -15,7 +15,7 @@ A play area for human perception 🤸 and cool code
             dev branch
         </td>
         <td>
-            Windows <a href="https://ci.appveyor.com/project/onqtam/doctest/branch/dev"><img src="https://ci.appveyor.com/api/projects/status/j89qxtahyw1dp4gd/branch/dev?svg=true"></a>
+            Windows <a href="https://ci.appveyor.com/project/krejov100/sandbox/branch/devel"><img src="https://ci.appveyor.com/api/projects/status/c945bnaij1v5qtct?svg=true"></a>
         </td>
     </tr>
 </table>
