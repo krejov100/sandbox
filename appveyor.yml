@@ -1,3 +1,6 @@
+image:
+  - Visual Studio 2015
+
 environment:
   matrix:
     - GENERATOR: "Visual Studio 15 Win64"
