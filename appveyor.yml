@@ -3,7 +3,7 @@ image:
 
 environment:
   matrix:
-      GENERATOR: "Visual Studio 14 Win64"
+    - GENERATOR: "Visual Studio 14 Win64"
       CONFIG: Debug
 
     - GENERATOR: "Visual Studio 14 Win64"
