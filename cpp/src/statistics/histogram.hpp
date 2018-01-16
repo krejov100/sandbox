@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include "range.hpp"
 #include <numeric>
@@ -7,7 +9,7 @@ struct Histogram
 {
     struct Bin{
         Range<T> range;
-        int count;
+		int count;
     };
     SparseVector<Bin> bins; // indexed bins
 };
@@ -66,13 +68,31 @@ inline Histogram<T> compute_histogram(const std::vector<T> &values, size_t nBins
 #ifdef DOCTEST_LIBRARY_INCLUDED
 TEST_CASE("compute_histogram test")
 {
-	std::vector<float> values = { 0.234f,12.45f, 9.324f, -3.34f, 8.0f, -2.98f, -20.0f, 0.0f };
+	std::vector<float> values = { 0.234f, 12.45f, 9.324f, -3.34f, 8.0f, -2.98f, -20.0f, 0.0f };
 	auto hist = compute_histogram(values, 4, Range<float>{-20.0f, 20.0f}, linear_quantize);
-	const size_t totalCount = std::accumulate(hist.bins.begin(), hist.bins.end(), 0, [](const size_t previous, const std::pair<size_t, Histogram<float>::Bin> &p) { return previous + p.second.count; });
+	int totalCount = std::accumulate(hist.bins.begin(), hist.bins.end(), 0, [](const int previous, const std::pair<size_t, Histogram<float>::Bin> &p) { return previous + p.second.count; });
 	
 	CHECK(hist.bins.size() == 4);
 	CHECK(totalCount == values.size());
 	CHECK(hist.bins[0].range.min == doctest::Approx(-20.0f));
 	CHECK(hist.bins[0].range.max == doctest::Approx(-10.0f));
+}
+#endif DOCTEST_LIBRARY_INCLUDED
+
+template<typename T>
+T histogram_mode(const Histogram<T> &hist)
+{
+	using pair_type = decltype(hist.bins)::value_type;
+	auto maxIter = std::max_element(hist.bins.begin(), hist.bins.end(), [](const pair_type &a, const pair_type &b) { return a.second.count < b.second.count; });
+	return middle(maxIter->second.range);
+}
+
+#ifdef DOCTEST_LIBRARY_INCLUDED
+TEST_CASE("histogram_mode test")
+{
+	std::vector<float> values = { 0.0f, 10.0f, 25.0f, 50.0f , 10.0f };
+	auto hist = compute_histogram(values, 100, Range<float>{ 0.0f, 100.0f }, linear_quantize);
+	float rslt = histogram_mode(hist);
+	CHECK(rslt == doctest::Approx(10.5f)); //10.5f due to the quantized binning
 }
 #endif DOCTEST_LIBRARY_INCLUDED

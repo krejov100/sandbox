@@ -5,17 +5,14 @@
 #include <string>
 
 namespace pk {
-    void strrep(
-        const std::string &matchStr,
-        const std::string &repStr,
-        std::string * const str) {
+    std::string strrep(std::string str, const std::string &matchStr, const std::string &repStr) {
         if (matchStr.empty())
-            return;
+			return str;
         size_t idx = 0;
         while (true) {
             // locate substring
-            index = str.find(matchStr, idx);
-            if (index == std::string::npos) break;
+			idx = str.find(matchStr, idx);
+            if (idx == std::string::npos) break;
 
             // replace substring
             str.replace(idx, matchStr.length(), repStr);
