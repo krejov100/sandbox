@@ -9,6 +9,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 enable_testing()
 
 INCLUDE_DIRECTORIES (third_party/doctest/doctest)
+INCLUDE_DIRECTORIES (third_party/linalg)
+
 
 add_subdirectory (src)
 add_subdirectory (apps)

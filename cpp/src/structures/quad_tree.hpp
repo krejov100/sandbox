@@ -6,7 +6,6 @@ struct Image<T>
 {
     unique_ptr<T> data;
     linalg::aliases::uint2 size;
-    
 };
 
 std::vector<TreeNode<Rect>> build_quad_tree(const cv::Mat &depth, const Rect &rect, int tree_depth = 0)

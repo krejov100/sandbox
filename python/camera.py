@@ -14,14 +14,17 @@ class PinHoleCamera:
     focalLength = FocalLength
     dimensions = ImagePoint
 
+
 class ViPiCamera:
     camera = PinHoleCamera
 
+
 class Pose:
-    orientation = np.asarray([0,0,0,1])
+    orientation = np.asarray([0, 0, 0, 1])
     position = np.zeros(3)
+    scale = np.ones(3)
+
 
 class MultiCameraArray:
     cameras = []
     globalPoses = []
-
